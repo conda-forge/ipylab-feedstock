@@ -1,5 +1,5 @@
 {% set name = "ipylab" %}
-{% set version = "0.1.3" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a48b711e429938ac9eff3b469b38fce4265bfa235eea0aeddcc8b04d74c9b264
+  sha256: ef4280374a374999b4e0e918fd4ac82838eeeb8a56d25082f2b22479d87589b5
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -32,7 +32,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: "Control JupyterLab from Python notebooks"
+  summary: Control JupyterLab from Python notebooks
 
   dev_url: https://github.com/jtpio/ipylab
 
