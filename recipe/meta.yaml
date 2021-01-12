@@ -1,5 +1,5 @@
 {% set name = "ipylab" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fe1061db965544c0eb02c75b7f14434b752c02220b116e8add5b67b0a3f93421
+  sha256: 25ca2b75028b2b8a59436491aa30443173fd9a3075e2da9efc0eefcf6e4e45dd
 
 build:
   noarch: python
@@ -16,16 +16,21 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - jupyter-packaging
+    - jupyterlab >=3.0.0,<4
+    - nodejs
+    - python >=3.6
     - pip
   run:
-    - ipywidgets >=7.0.0
-    - jupyterlab >=1.0.0
-    - python >=3.5
+    - ipywidgets >=7.6.0,<8
+    - jupyterlab >=3.0.0,<4
+    - python >=3.6
 
 test:
   imports:
     - ipylab
+  commands:
+    - test -f "${PREFIX}/share/jupyter/labextensions/ipylab/package.json"
 
 about:
   home: https://github.com/jtpio/ipylab

@@ -5,11 +5,11 @@ Home: https://github.com/jtpio/ipylab
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipylab-feedstock/blob/master/LICENSE.txt)
 
 Summary: Control JupyterLab from Python notebooks
 
-
+Development: https://github.com/jtpio/ipylab
 
 Current build status
 ====================
