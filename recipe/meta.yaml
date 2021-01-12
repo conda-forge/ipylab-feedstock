@@ -29,6 +29,8 @@ requirements:
 test:
   imports:
     - ipylab
+  commands:
+    - test -f "${PREFIX}/share/jupyter/labextensions/ipylab/package.json"
 
 about:
   home: https://github.com/jtpio/ipylab
