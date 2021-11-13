@@ -1,5 +1,5 @@
 {% set name = "ipylab" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 962c9b70529ca2cf9e75a7a6c01a5907e4ccfc325eedb779edbb40f26554565d
+  sha256: 11433e172bc8984dbef9c80a0f27ece10e0e560adcff47af95979b6571e64fb6
 
 build:
   noarch: python
