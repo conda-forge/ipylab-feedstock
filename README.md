@@ -1,15 +1,15 @@
-About ipylab
-============
+About ipylab-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipylab-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/jtpio/ipylab
 
 Package license: BSD-3-Clause
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ipylab-feedstock/blob/main/LICENSE.txt)
-
 Summary: Control JupyterLab from Python notebooks
 
-Development: https://github.com/jtpio/ipylab
+Documentation: https://ipylab.readthedocs.io
 
 Current build status
 ====================
@@ -145,5 +145,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@jtpio](https://github.com/jtpio/)
 
