@@ -1,4 +1,4 @@
-{% set version = "0.7.0" %}
+{% set version = "0.7.1" %}
 
 package:
   name: ipylab
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/i/ipylab/ipylab-{{ version }}.tar.gz
-  sha256: 0afc9badb85e568e28c538a1b27e9cfc057ccfcb769410bbd40507736eebaf38
+  sha256: 5d866c7bc0e74be83d8eecd7a42379ea7ac40c72f2cb4252986e5560ee737707
 
 build:
   noarch: python
