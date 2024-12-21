@@ -5,12 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/i/ipylab/ipylab-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/i/ipylab/ipylab-{{ version }}.tar.gz
   sha256: c4f0744b1f96d6c4605b986aa59ebccd64451bf71c9483a019ab7a52c5656170
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -20,16 +20,17 @@ requirements:
     - hatchling >=1.5.0
     - jupyterlab >=4.0,<5
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - ipywidgets >=7.6.0,<9
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   requires:
     - pip
     - jupyterlab >=4.0,<5
     - m2-grep  # [win]
+    - python {{ python_min }}
   imports:
     - ipylab
   commands:
