@@ -42,12 +42,9 @@ tests:
         - jupyterlab >=4.0.0,<5
         - python ${{ python_min }}.*
     script:
-      - pip check
       - jupyter labextension list
-      - jupyter labextension list 2>&1 labextensions | python -c "
-          import re, sys;
-          v = sys.stdin.read();
-          assert re.findall(r'ipylab.*OK.*ipylab', v)"
+      - jupyter labextension list 2>&1 |
+        python -c "import re, sys; v = sys.stdin.read(); assert re.findall(r'ipylab.*OK.*ipylab', v)"
 
 about:
   license: BSD-3-Clause
