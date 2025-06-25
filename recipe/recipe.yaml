@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: 1.1.0
+
+package:
+  name: ipylab
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/i/ipylab/ipylab-${{ version }}.tar.gz
+  sha256: f39858a4d9ef6ecb82f8efeeb9f6b5a01a3a64d4f3c4f2a5fe2d58ae594de212
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
+
+requirements:
+  host:
+    - hatch-jupyter-builder >=0.8.2
+    - hatch-nodejs-version
+    - hatchling >=1.5.0
+    - jupyterlab >=4.0.0,<5
+    - pip
+    - python ${{ python_min }}.*
+  run:
+    - ipywidgets >=7.6.0,<9
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports: ipylab
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - 3.13.*
+  - requirements:
+      run:
+        - jupyterlab >=4.0.0,<5
+        - python ${{ python_min }}.*
+    script:
+      - jupyter labextension list
+      - jupyter labextension list 2>&1 |
+        python -c "import re, sys; v = sys.stdin.read(); assert re.findall(r'ipylab.*OK.*ipylab', v)"
+
+about:
+  license: BSD-3-Clause
+  license_file:
+    - LICENSE
+    - ipylab/labextension/static/third-party-licenses.json
+  summary: Control JupyterLab from Python notebooks
+  homepage: https://github.com/jtpio/ipylab
+  documentation: https://ipylab.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - jtpio
+    - bollwyvl
