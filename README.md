@@ -9,7 +9,7 @@ Package license: BSD-3-Clause
 
 Summary: Control JupyterLab from Python notebooks
 
-Documentation: https://ipylab.readthedocs.io
+Documentation: https://ipylab.readthedocs.io/
 
 Current build status
 ====================
