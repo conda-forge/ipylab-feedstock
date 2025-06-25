@@ -3,6 +3,8 @@ schema_version: 1
 
 context:
   version: 1.1.0
+  lab_min: "4.1.0"
+  lab_max: "5.0.0"
 
 package:
   name: ipylab
@@ -13,7 +15,7 @@ source:
   sha256: f39858a4d9ef6ecb82f8efeeb9f6b5a01a3a64d4f3c4f2a5fe2d58ae594de212
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
@@ -23,12 +25,14 @@ requirements:
     - hatch-jupyter-builder >=0.8.2
     - hatch-nodejs-version
     - hatchling >=1.5.0
-    - jupyterlab >=4.0.0,<5
+    - jupyterlab >=${{ lab_min }},<${{ lab_max }}
     - pip
     - python ${{ python_min }}.*
   run:
     - ipywidgets >=7.6.0,<9
     - python >=${{ python_min }}
+  run_constraints:
+    - jupyterlab >=${{ lab_min }},<${{ lab_max }}
 
 tests:
   - python:
@@ -39,7 +43,7 @@ tests:
         - 3.13.*
   - requirements:
       run:
-        - jupyterlab >=4.0.0,<5
+        - jupyterlab ${{ lab_min }}.*
         - python ${{ python_min }}.*
     script:
       - jupyter labextension list
